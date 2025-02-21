@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Logearnos en GHCR
-        run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u lokcito --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u lokcito --password-stdin
       - name: Crear imagen
         run: docker build . -t ghcr.io/vaheroda/express-image:latest
       - name: Desplegar imagen
